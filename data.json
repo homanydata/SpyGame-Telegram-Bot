@@ -1,0 +1,71 @@
+{
+    "hobbies": [
+        "reading", "swimming", "running", "writing", "cooking", "photography", "painting", "drawing", "fishing", "hiking",
+        "singing", "dancing", "acting", "playing", "writing", "coding", "traveling", "knitting", "woodworking", "gardening",
+        "baking", "sculpting", "sewing", "yoga", "meditation", "camping", "surfing", "skiing", "climbing", "sailing"],
+    "animals": [
+        "Giraffe", "Elephant", "Tiger", "Lion", "Leopard", "Cheetah", "Panther", "Jaguar", "Zebra", "Hippo", "Rhino",
+        "Kangaroo", "Koala", "Kookaburra", "Platypus", "Crocodile", "Alligator", "Snake", "Lizard", "Frog", "Toad",
+        "Salamander", "Turtle", "Penguin", "Ostrich", "Emu", "Flamingo", "Peacock", "Swan", "Pelican", "Sparrow",
+        "Hawk", "Eagle", "Falcon", "Raven", "Crow", "Owl", "Bat", "Raccoon", "Hedgehog", "Squirrel", "Chipmunk",
+        "Koala", "Possum", "Lemur", "Monkey", "Gorilla", "Chimpanzee", "Orangutan", "Lioness", "Jaguarundi"],
+    "colors": [
+        "Red", "Blue", "Green", "Yellow", "Orange", "Purple", "Pink", "Gray", "Brown", "Black", "White", "Turquoise",
+        "Magenta", "Gold", "Silver"],
+    "football_teams": [
+        "Barcelona", "RealMadrid", "Liverpool", "Manchester United", "Manchester City", "Chelsea", "Arsenal",
+        "Tottenham", "BayernMunich", "Borussia Dortmund", "Paris Saint-Germain", "Juventus", "AC Milan", "Inter Milan",
+        "AtleticoMadrid", "Sevilla", "Valencia", "Porto", "Benfica", "Ajax", "Galatasaray", "Besiktas", "Roma",
+        "Napoli", "Lazio", "Fiorentina", "Olympique Marseille"],
+    "football_players": [
+        "Messi", "Ronaldo", "Neymar", "Mbappe", "Lewandowski", "Hazard", "De Bruyne", "Van Dijk", "Salah", "Mané",
+        "Suarez", "Bale", "Aguero", "Hummels", "Griezmann", "Kane", "Ramos", "Pogba", "Kante", "Alisson", "Neuer",
+        "Courtois", "De Gea", "Ter Stegen", "Lloris", "Alba", "Marcelo", "Walker", "Alexander-Arnold", "Chiellini",
+        "Bonucci"],
+    "weather": [
+        "sunny", "cloudy", "rainy", "windy", "snowy", "stormy", "foggy", "hazy", "hot", "cold", "humid", "dry",
+        "breezy", "damp", "chilly", "blustery", "thunderstorm", "lightning", "hail", "hurricane", "tornado", "cyclone",
+        "monsoon", "frost", "freeze", "drought", "flood", "heatwave", "arctic blast", "smog"],
+    "vehicles": [
+        "car", "motorcycle", "truck", "bus", "train", "bicycle", "scooter", "helicopter", "airplane", "boat", "yacht",
+        "ship", "submarine", "blimp", "hot-air balloon", "spaceship", "rocket", "tractor", "crane", "ambulance",
+        "firetruck", "police car", "taxi", "limousine", "forklift", "roller coaster", "ferris wheel", "bumper car",
+        "go-kart", "segway"],
+    "vegetables": [
+        "carrot", "broccoli", "cauliflower", "cabbage", "lettuce", "spinach", "kale", "arugula", "beetroot", "zucchini",
+        "squash", "pumpkin", "sweet potato", "potato", "onion", "garlic", "ginger", "radish", "asparagus", "celery",
+        "fennel", "okra", "artichoke", "eggplant", "tomato", "bell pepper", "chili pepper", "cucumber", "corn", "peas"],
+    "fruits": [
+        "apple", "banana", "orange", "grape", "lemon", "lime", "peach", "pear", "strawberry", "blueberry", "raspberry",
+        "blackberry", "watermelon", "melon", "kiwi", "pineapple", "mango", "papaya", "apricot", "cherry", "plum", "fig",
+        "grapefruit", "pomegranate", "date", "cranberry", "guava", "passionfruit", "lychee", "dragonfruit"],
+    "desserts": [
+        "cake", "pie", "brownie", "cookie", "ice-cream", "pudding", "custard", "chocolate", "fudge", "macaron",
+        "muffin",
+        "donut", "cupcake", "croissant", "pancake", "waffle", "cheesecake", "tiramisu", "flan", "gelato", "sorbet",
+        "cannoli", "eclair", "crepe", "mousse", "biscotti", "truffle", "fruitcake", "scone", "strudel"],
+    "countries": [
+        "Canada", "China", "France", "Germany", "India", "Italy", "Japan", "Mexico", "Nigeria", "Russia", "SaudiArabia",
+        "SouthAfrica", "Spain", "Turkey", "Ukraine", "Emirates", "England", "UnitedStates",
+        "Australia", "Brazil", "Egypt", "Indonesia", "Iran", "Iraq", "Pakistan", "Philippines", "Thailand", "Viet"],
+    "sports": [
+        "soccer", "basketball", "volleyball", "tennis", "badminton", "baseball", "cricket", "hockey", "football",
+        "golf",
+        "swimming", "running", "cycling", "boxing", "wrestling", "karate", "taekwondo", "judo", "fencing", "skiing",
+        "snowboarding", "surfing", "skateboarding", "climbing", "parkour", "yoga", "pilates", "gymnastics", "dancing"],
+    "shapes": [
+        "circle", "square", "rectangle", "triangle", "pentagon", "hexagon", "octagon", "diamond", "heart", "star",
+        "crescent", "sphere", "cube", "cylinder", "pyramid", "cone", "torus", "dodecahedron", "icosahedron",
+        "tetrahedron",
+        "rhombus", "trapezoid", "parallelogram", "ellipsoid", "prism", "frustum", "annulus", "sector", "lune"],
+    "tools": [
+        "hammer", "screwdriver", "wrench", "pliers", "saw", "drill", "chisel", "sander", "level", "tape", "knife",
+        "scissors", "awl", "file", "clamp", "vise", "pencil", "ruler", "compass", "protractor", "caliper", "micrometer",
+        "laser", "detector", "detector", "multimeter", "voltmeter", "oscilloscope", "spectrometer", "thermometer"],
+    "emotions": [
+        "happiness", "anger", "love", "fear", "sadness", "surprise", "disgust", "contentment", "anxiety", "shame",
+        "guilt",
+        "envy", "jealousy", "excitement", "nostalgia", "hope", "despair", "confusion", "frustration", "sympathy",
+        "empathy",
+        "compassion", "humility", "pride", "trust", "doubt", "curiosity", "amusement", "awe", "disappointment"]
+}
