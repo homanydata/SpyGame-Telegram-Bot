@@ -39,4 +39,7 @@ class Keys:
     TOKEN = '6441490404:AAF3m-jPebn9E4dzn9ZeoCF82CiveNzc0AU'
     File_Directory = 'C:\Ali\TelegramBots\SpyGame\data.json'
 
+class Timer:
+    waiting_players = 30
+    questions_time = 180
 
