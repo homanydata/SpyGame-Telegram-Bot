@@ -2,43 +2,38 @@ import telebot
 from telebot.types import Poll, PollAnswer, User
 from lookups import Keys, Messages
 import random
-from pandas_handler import choose_word, read_dict
+from json_handler import choose_word, read_dict
 import threading
+import GameSession
 
 class SpyGameBot:
     def __init__(self):
         # final attributes
         self.bot = telebot.TeleBot(Keys.TOKEN)
         self.dic = read_dict()
-        
-        # every turn atributes
-        self.players = []
-        self.spy = None
-        self.word = ""
+        self.sessions = {}
 
     def start(self, chat_id):
-        # reset attributes from previous turns
-        self.players = []
-        self.spy = None
-        self.word = ""
+        session = GameSession(chat_id=chat_id)
+        self.sessions[chat_id] = session
 
         # send poll
-        self.bot.send_poll(chat_id=chat_id, question=Messages.start_game_prompt, options=Messages.wonna_play, is_anonymous=False)
+        self.bot.send_poll(chat_id=session.chat_id, question=Messages(start_game_prompt,session.language), options=Messages.wonna_play, is_anonymous=False)
 
-    def show_results(self, chat_id):
-        self.bot.send_message(chat_id=chat_id, text=Messages.show_results(self.spy, self.word))
+    def show_results(self, session):
+        self.bot.send_message(chat_id=session.chat_id, text=Messages.show_results(session.spy, session.word))
     
-    def start_timer(self, chat_id):
+    def start_timer(self, sesion:GameSession):
         def timer_callback():
-            self.guessing_time(chat_id)
+            self.guessing_time(session)
 
         # Create a Timer object that runs the callback function after 3 minutes
         timer = threading.Timer(180, timer_callback)  # 180 seconds = 3 minutes
         timer.start()
 
-    def send_private_messages(self):
-        for player in self.players:
-            if player != self.spy:
+    def send_private_messages(self, session:GameSession):
+        for player in session.players:
+            if player != session.spy:
                 self.bot.send_message(chat_id=player.id, text=Messages.non_spy_role_assigned(self.word))
             else:
                 self.bot.send_message(chat_id=self.spy.id, text=Messages.spy_role_assigned)
@@ -72,10 +67,10 @@ class SpyGameBot:
             if pollAnswer.poll.is_closed:
                 self.show_results(chat_id=group_chat)
 
-    def guessing_time(self, chat_id):
+    def guessing_time(self, session:GameSession):
         # send poll to group chat for players to try to guess who is the spy
-        options = [f"Player {player.full_name}" for player in self.players]
-        self.bot.send_poll(chat_id=chat_id, question=Messages.guess_spy, options=options, open_period=60)
+        options = [f"Player {player.full_name}" for player in session.players]
+        self.bot.send_poll(chat_id=session.chat_id, question=Messages.guess_spy, options=options, open_period=60)
 
     def run(self):
         @self.bot.message_handler(commands=['play'], chat_types=['group'])

@@ -1,4 +1,3 @@
-import pandas as pd
 from lookups import Keys
 import random
 import json
