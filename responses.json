@@ -5,7 +5,16 @@
     "no_enough_players" : "oops, sorry to tell you that there is no enough players to play now, try at another time",
     "spy_role_assigned" : "You are the spy!",
     "guess_spy" : "Who do you think is the spy?",
-    "correct_guess" : "You guessed correctly! +1 point",
-    "incorrect_guess" : "Incorrect guess. The spy was not caught."
-    }
+    "player_assigned": "You are not the spy. Ask questions to find the spy!\nThe word is ",
+    "announce_spy": "The spy is "
+    },
+"arabic":{
+    "start_game_prompt" : "مين يلعب؟",
+    "wonna_play" : "انا",
+    "no_enough_players" : "انتو الكل بالكل بس عددكن مش كافي للعبة لازم تكونو 4 عالاقل",
+    "spy_role_assigned" : "انت برا السالفة",
+    "guess_spy" : "مين بتعتقد برا السالفة؟",
+    "player_assigned": "الكلمة هيي ",
+    "announce_spy": "اللي برا السالفة هوي "
+}
 }
