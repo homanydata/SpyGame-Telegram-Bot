@@ -3,7 +3,7 @@ import random
 import json
 
 def read_dict():
-    with open(Keys.File_Directory, 'r') as json_file:
+    with open(Keys.File_Directory, 'r', encoding='utf-8') as json_file:
         data = json.load(json_file)
     return data
 

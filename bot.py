@@ -21,48 +21,56 @@ class SpyGameBot:
             session = GameSession(chat_id)
             self.sessions[chat_id] = session
 
+        session = self.sessions[chat_id]
         # send poll
-        sent_message = self.bot.send_poll(chat_id=session.chat_id, question=Messages.start_game_prompt(session.language), options=[Messages.wonna_play(language=session.language)]*2, is_anonymous=False)
+        sent_message = self.bot.send_poll(chat_id=session.chat_id, question=Messages.start_game_prompt(session.language), options=[Messages.wonna_play(language=session.language)]*2, is_anonymous=False, open_period=Timer.waiting_players)
         poll = sent_message.poll
         
         # map this poll_id to its chat_id
         self.poll_chat_ids[poll.id] = chat_id
         # wait till users join the game and vote
-        self.start_timer(session=session, time=Timer.waiting_players, function=self.check_enough_players, poll=poll, session=session)
+        self.start_timer(time=Timer.waiting_players, function=self.check_enough_players, kwargs={"session":session})
 
-    def check_enough_players(self, poll, session):
-            if poll.total_voter_count >= 3:
-                    session.spy = random.choice(session.players)
-                    session.word = choose_word()
-                    # send private msg for each player
-                    self.send_private_messages(session=session)
-                    # start timer for questions in the group chat
-                    self.start_timer(session=session, time=Timer.questions_time, function=self.guessing_time(session=session))
-            else:
-                self.bot.send_message(chat_id=session.chat_id, text=Messages.no_enough_players(language=session.language))
+    def check_enough_players(self, session):
+        if len(session.players) >= Keys.min_players:
+            session.spy = random.choice(session.players)
+            session.word = choose_word(session=session, data=self.dic)
+            
+            # send private msg for each player
+            if not self.send_private_messages(session=session):
+                return
+            self.bot.send_message(chat_id=session.chat_id, text=Messages.start_questions(language=session.language))
+            # start timer for questions in the group chat
+            self.start_timer(time=Timer.questions_time, function=self.guessing_time, kwargs={"session":session})
+        else:
+            self.bot.send_message(chat_id=session.chat_id, text=Messages.no_enough_players(language=session.language))
 
     def show_results(self, session):
         self.bot.send_message(chat_id=session.chat_id, text=Messages.show_results(spy=session.spy, word=session.word,language=session.language))
 
-    def start_timer(self, session:GameSession, function, time):
-        # Create a Timer object that runs the callback function after 3 minutes
-        timer = threading.Timer(interval=time, function=function, session=session)
+    def start_timer(self, function, time, kwargs):
+        timer = threading.Timer(interval=time, function=function, kwargs=kwargs)
         timer.start()
 
     def send_private_messages(self, session:GameSession):
+        all_good = True
         for player in session.players:
             try:
                 if player != session.spy:
                     self.bot.send_message(chat_id=player.id, text=Messages.send_word(word=session.word,language=session.language))
                 else:
-                    self.bot.send_message(chat_id=self.spy.id, text=Messages.spy_role_assigned(language=session.language))
-            except:
-                self.bot.send_message(chat_id=session.chat_id, text=Errors.newUserError(language=session.language))
+                    self.bot.send_message(chat_id=player.id, text=Messages.spy_role_assigned(language=session.language))
+            except Exception as e:
+                self.bot.send_message(chat_id=session.chat_id, text=Errors.newUserError(language=session.language, user=player))
+                all_good = False
+        return all_good
     
     def handle_poll_answer(self, pollAnswer: PollAnswer):
         # get group chat id from poll
         group_chat = self.poll_chat_ids[pollAnswer.poll_id]
         session = self.sessions[group_chat]
+        print(self.sessions)
+        print(pollAnswer)
         
         # only if poll is participation poll
         if session.spy is None:
@@ -72,9 +80,9 @@ class SpyGameBot:
     def guessing_time(self, session:GameSession):
         # send poll to group chat for players to try to guess who is the spy
         options = [f"Player {player.full_name}" for player in session.players]
-        self.bot.send_poll(chat_id=session.chat_id, question=Messages.guess_spy(language=session.language), options=options, open_period=60)
+        self.bot.send_poll(chat_id=session.chat_id, question=Messages.guess_spy(language=session.language), options=options, open_period=Timer.guessing_spy)
         # start timer for poll time until results shown
-        self.start_timer(session=session, time=Timer.guessing_spy, function=self.show_results(session=session))
+        self.start_timer(time=Timer.guessing_spy, function=self.show_results, kwargs={"session":session})
 
     def run(self):
         # this is the actual main body of the bot, other functions are helpers
@@ -84,9 +92,14 @@ class SpyGameBot:
         
         @self.bot.message_handler(commands=['change_language'], chat_types=['group'])
         def ask_language(message):
-            session = self.sessions[message.chat.id]
-            markup = Markups.get_choose_language_markup(session.language)
-            self.bot.send_message(chat_id=message.chat.id, text=Messages.choose_language(session.language), reply_markup=markup)
+            try:
+                session = self.sessions[message.chat.id]
+            except:
+                self.sessions[message.chat.id] = GameSession(chat_id=message.chat.id)
+                session = self.sessions[message.chat.id]
+            finally:
+                markup = Markups.get_choose_language_markup(session.language)
+                self.bot.send_message(chat_id=message.chat.id, text=Messages.choose_language(session.language), reply_markup=markup)
         
         @self.bot.callback_query_handler(func=lambda call: True)
         def change_session_language(call):
