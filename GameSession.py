@@ -1,3 +1,6 @@
+from json_handler import choose_word
+import random
+
 class GameSession:
     def __init__(self, chat_id):
         self.chat_id = chat_id
@@ -11,3 +14,7 @@ class GameSession:
         self.spy = None
         self.players = []
         self.word = ''
+    def choose_spy(self):
+        self.spy = random.choice(self.players)
+    def choose_word(self, dic):
+        self.word = choose_word(session=self, data=dic)

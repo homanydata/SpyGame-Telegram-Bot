@@ -12,3 +12,11 @@ def choose_word(data: dict, session):
     theme = random.choice(list(thisData.keys()))
     word = random.choice(thisData[theme])
     return word
+
+def choose_word_randomly(data:dict, session):
+    data = data[session.language]
+    allWords = []
+    for theme in data:
+        allWords.append(theme)
+    word = random.choice(allWords)
+    return word

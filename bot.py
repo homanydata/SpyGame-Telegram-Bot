@@ -1,9 +1,7 @@
 import telebot
-from telebot.types import Poll, PollAnswer, User
-from telebot import types
+from telebot.types import PollAnswer
 from lookups import Keys, Messages, Timer, Errors, Markups
-import random
-from json_handler import choose_word, read_dict
+from json_handler import read_dict
 import threading
 from GameSession import GameSession
 
@@ -16,25 +14,27 @@ class SpyGameBot:
 
     def start(self, chat_id):
         try:
-            self.sessions[chat_id].restart_session()
+            session = self.sessions[chat_id]
+            session.restart_session()
+            self.sessions[chat_id] = session
         except:
             session = GameSession(chat_id)
             self.sessions[chat_id] = session
-
-        session = self.sessions[chat_id]
+        
         # send poll
         sent_message = self.bot.send_poll(chat_id=session.chat_id, question=Messages.start_game_prompt(session.language), options=[Messages.wonna_play(language=session.language)]*2, is_anonymous=False, open_period=Timer.waiting_players)
         poll = sent_message.poll
         
         # map this poll_id to its chat_id
         self.poll_chat_ids[poll.id] = chat_id
+        
         # wait till users join the game and vote
         self.start_timer(time=Timer.waiting_players, function=self.check_enough_players, kwargs={"session":session})
 
     def check_enough_players(self, session):
         if len(session.players) >= Keys.min_players:
-            session.spy = random.choice(session.players)
-            session.word = choose_word(session=session, data=self.dic)
+            session.choose_spy()
+            session.choose_word(dic=self.dic)
             
             # send private msg for each player
             if not self.send_private_messages(session=session):
@@ -69,9 +69,7 @@ class SpyGameBot:
         # get group chat id from poll
         group_chat = self.poll_chat_ids[pollAnswer.poll_id]
         session = self.sessions[group_chat]
-        print(self.sessions)
-        print(pollAnswer)
-        
+
         # only if poll is participation poll
         if session.spy is None:
             # add the voter to the player attribute
@@ -107,6 +105,7 @@ class SpyGameBot:
             selected_language = call.data
             if selected_language in Messages.get_languages('english'):
                 session.change_language(selected_language)
+                self.bot.send_message(chat_id=session.chat_id, text=Messages.language_changed(session.language))
         
         @self.bot.message_handler(func=lambda message:True, chat_types=['private'])
         def repeat(message):
