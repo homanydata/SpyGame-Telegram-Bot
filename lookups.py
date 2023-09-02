@@ -10,7 +10,9 @@ class Messages():
             "spy_role_assigned" : "You are the spy!",
             "guess_spy" : "Who do you think is the spy?",
             "player_assigned": "You are not the spy. Ask questions to find the spy!\nThe word is ",
-            "announce_spy": "The spy is "
+            "announce_spy": "The spy is ",
+            "choose_language": "which language do you want?",
+            "get_languages": ["english","arabic"]
             },
         "arabic":{
             "start_game_prompt" : "مين يلعب؟",
@@ -19,7 +21,9 @@ class Messages():
             "spy_role_assigned" : "انت برا السالفة",
             "guess_spy" : "مين بتعتقد برا السالفة؟",
             "player_assigned": "الكلمة هيي ",
-            "announce_spy": "اللي برا السالفة هوي "
+            "announce_spy": "اللي برا السالفة هوي ",
+            "choose_language": "ايا لغة بدكن؟",
+            "get_languages": ["انجليزي","عربي"]
         }
     }
 
@@ -28,6 +32,8 @@ class Messages():
     def no_enough_players(language): return Messages.messages[language]['no_enough_players']
     def spy_role_assigned(language): return Messages.messages[language]['spy_role_assigned']
     def guess_spy(language): return Messages.messages[language]['guess_spy']
+    def choose_language(language): return Messages.messages[language]['choose_language']
+    def get_languages(language): return Messages.messages[language]['get_languages']
 
     def send_word(word:str, language:str):
         return Messages.messages[language]["send_word"] + word
@@ -42,4 +48,24 @@ class Keys:
 class Timer:
     waiting_players = 30
     questions_time = 180
+    guessing_spy = 30
 
+class Errors:
+    errors = {
+        "english":{
+            'newUserError': ', sorry to say I have never chatted with you before so can you start a chat?'
+        },
+        "arabic":{
+            'newUserError': '، ما بقدر احكي حدا اذا ولا مرة باعتلي شي، بعتلي حيلا شي عالخاص'
+        }
+    }
+    def newUserError(language:str): return Errors.errors[language]['newUserError']
+
+class Markups:
+    def get_choose_language_markup(language):
+        markup = telebot.types.InlineKeyboardMarkup(row_width=len(Messages.get_languages('english'))//2)
+        buttons = [
+            telebot.types.InlineKeyboardButton(language, callback_data=standard) for language, standard in zip(Messages.get_languages(language), Messages.get_languages('english'))
+        ]
+        markup.add(*buttons)
+        return markup

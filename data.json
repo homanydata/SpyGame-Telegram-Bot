@@ -1,71 +1,146 @@
 {
-    "hobbies": [
-        "reading", "swimming", "running", "writing", "cooking", "photography", "painting", "drawing", "fishing", "hiking",
-        "singing", "dancing", "acting", "playing", "writing", "coding", "traveling", "knitting", "woodworking", "gardening",
-        "baking", "sculpting", "sewing", "yoga", "meditation", "camping", "surfing", "skiing", "climbing", "sailing"],
-    "animals": [
-        "Giraffe", "Elephant", "Tiger", "Lion", "Leopard", "Cheetah", "Panther", "Jaguar", "Zebra", "Hippo", "Rhino",
-        "Kangaroo", "Koala", "Kookaburra", "Platypus", "Crocodile", "Alligator", "Snake", "Lizard", "Frog", "Toad",
-        "Salamander", "Turtle", "Penguin", "Ostrich", "Emu", "Flamingo", "Peacock", "Swan", "Pelican", "Sparrow",
-        "Hawk", "Eagle", "Falcon", "Raven", "Crow", "Owl", "Bat", "Raccoon", "Hedgehog", "Squirrel", "Chipmunk",
-        "Koala", "Possum", "Lemur", "Monkey", "Gorilla", "Chimpanzee", "Orangutan", "Lioness", "Jaguarundi"],
-    "colors": [
-        "Red", "Blue", "Green", "Yellow", "Orange", "Purple", "Pink", "Gray", "Brown", "Black", "White", "Turquoise",
-        "Magenta", "Gold", "Silver"],
-    "football_teams": [
-        "Barcelona", "RealMadrid", "Liverpool", "Manchester United", "Manchester City", "Chelsea", "Arsenal",
-        "Tottenham", "BayernMunich", "Borussia Dortmund", "Paris Saint-Germain", "Juventus", "AC Milan", "Inter Milan",
-        "AtleticoMadrid", "Sevilla", "Valencia", "Porto", "Benfica", "Ajax", "Galatasaray", "Besiktas", "Roma",
-        "Napoli", "Lazio", "Fiorentina", "Olympique Marseille"],
-    "football_players": [
-        "Messi", "Ronaldo", "Neymar", "Mbappe", "Lewandowski", "Hazard", "De Bruyne", "Van Dijk", "Salah", "Mané",
-        "Suarez", "Bale", "Aguero", "Hummels", "Griezmann", "Kane", "Ramos", "Pogba", "Kante", "Alisson", "Neuer",
-        "Courtois", "De Gea", "Ter Stegen", "Lloris", "Alba", "Marcelo", "Walker", "Alexander-Arnold", "Chiellini",
-        "Bonucci"],
-    "weather": [
-        "sunny", "cloudy", "rainy", "windy", "snowy", "stormy", "foggy", "hazy", "hot", "cold", "humid", "dry",
-        "breezy", "damp", "chilly", "blustery", "thunderstorm", "lightning", "hail", "hurricane", "tornado", "cyclone",
-        "monsoon", "frost", "freeze", "drought", "flood", "heatwave", "arctic blast", "smog"],
-    "vehicles": [
-        "car", "motorcycle", "truck", "bus", "train", "bicycle", "scooter", "helicopter", "airplane", "boat", "yacht",
-        "ship", "submarine", "blimp", "hot-air balloon", "spaceship", "rocket", "tractor", "crane", "ambulance",
-        "firetruck", "police car", "taxi", "limousine", "forklift", "roller coaster", "ferris wheel", "bumper car",
-        "go-kart", "segway"],
-    "vegetables": [
-        "carrot", "broccoli", "cauliflower", "cabbage", "lettuce", "spinach", "kale", "arugula", "beetroot", "zucchini",
-        "squash", "pumpkin", "sweet potato", "potato", "onion", "garlic", "ginger", "radish", "asparagus", "celery",
-        "fennel", "okra", "artichoke", "eggplant", "tomato", "bell pepper", "chili pepper", "cucumber", "corn", "peas"],
-    "fruits": [
-        "apple", "banana", "orange", "grape", "lemon", "lime", "peach", "pear", "strawberry", "blueberry", "raspberry",
-        "blackberry", "watermelon", "melon", "kiwi", "pineapple", "mango", "papaya", "apricot", "cherry", "plum", "fig",
-        "grapefruit", "pomegranate", "date", "cranberry", "guava", "passionfruit", "lychee", "dragonfruit"],
-    "desserts": [
-        "cake", "pie", "brownie", "cookie", "ice-cream", "pudding", "custard", "chocolate", "fudge", "macaron",
-        "muffin",
-        "donut", "cupcake", "croissant", "pancake", "waffle", "cheesecake", "tiramisu", "flan", "gelato", "sorbet",
-        "cannoli", "eclair", "crepe", "mousse", "biscotti", "truffle", "fruitcake", "scone", "strudel"],
-    "countries": [
-        "Canada", "China", "France", "Germany", "India", "Italy", "Japan", "Mexico", "Nigeria", "Russia", "SaudiArabia",
-        "SouthAfrica", "Spain", "Turkey", "Ukraine", "Emirates", "England", "UnitedStates",
-        "Australia", "Brazil", "Egypt", "Indonesia", "Iran", "Iraq", "Pakistan", "Philippines", "Thailand", "Viet"],
-    "sports": [
-        "soccer", "basketball", "volleyball", "tennis", "badminton", "baseball", "cricket", "hockey", "football",
-        "golf",
-        "swimming", "running", "cycling", "boxing", "wrestling", "karate", "taekwondo", "judo", "fencing", "skiing",
-        "snowboarding", "surfing", "skateboarding", "climbing", "parkour", "yoga", "pilates", "gymnastics", "dancing"],
-    "shapes": [
-        "circle", "square", "rectangle", "triangle", "pentagon", "hexagon", "octagon", "diamond", "heart", "star",
-        "crescent", "sphere", "cube", "cylinder", "pyramid", "cone", "torus", "dodecahedron", "icosahedron",
-        "tetrahedron",
-        "rhombus", "trapezoid", "parallelogram", "ellipsoid", "prism", "frustum", "annulus", "sector", "lune"],
-    "tools": [
-        "hammer", "screwdriver", "wrench", "pliers", "saw", "drill", "chisel", "sander", "level", "tape", "knife",
-        "scissors", "awl", "file", "clamp", "vise", "pencil", "ruler", "compass", "protractor", "caliper", "micrometer",
-        "laser", "detector", "detector", "multimeter", "voltmeter", "oscilloscope", "spectrometer", "thermometer"],
-    "emotions": [
-        "happiness", "anger", "love", "fear", "sadness", "surprise", "disgust", "contentment", "anxiety", "shame",
-        "guilt",
-        "envy", "jealousy", "excitement", "nostalgia", "hope", "despair", "confusion", "frustration", "sympathy",
-        "empathy",
-        "compassion", "humility", "pride", "trust", "doubt", "curiosity", "amusement", "awe", "disappointment"]
+    "english":{
+        "hobbies": [
+            "reading", "swimming", "running", "writing", "cooking", "photography", "painting", "drawing", "fishing", "hiking",
+            "singing", "dancing", "acting", "coding", "traveling", "baking", "yoga", "skiing", "climbing"],
+        "animals": [
+            "Giraffe", "Elephant", "Tiger", "Lion", "Leopard", "Cheetah", "Panther", "Jaguar", "Zebra", "Hippo", "Rhino",
+            "Kangaroo", "Koala", "Crocodile", "Alligator", "Snake",  "Frog", "Turtle", "Penguin", "Flamingo", "Peacock",
+            "Eagle", "Owl", "Bat", "Raccoon", "Squirrel", "Monkey", "Gorilla", "Chimpanzee"],
+        "colors": [
+            "Red", "Blue", "Green", "Yellow", "Orange", "Purple", "Pink", "Gray", "Brown", "Black", "White", "Gold", "Silver"],
+        "football_teams": [
+            "Barcelona", "RealMadrid", "Liverpool", "Manchester United", "Manchester City", "Chelsea", "Arsenal",
+            "Tottenham", "BayernMunich", "Borussia Dortmund", "Paris Saint-Germain", "Juventus", "AC Milan", "Inter Milan"],
+        "football_players": [
+            "Messi", "Ronaldo", "Neymar", "Mbappe", "Lewandowski", "Hazard", "De Bruyne", "Van Dijk", "Salah", "Mané"],
+        "weather": [
+            "sunny", "cloudy", "rainy", "windy", "snowy", "stormy", "foggy", "hazy", "hot", "cold", "humid", "dry"],
+        "vehicles": [
+            "car", "motorcycle", "truck", "bus", "train", "bicycle", "scooter", "helicopter", "airplane", "ship", "submarine",
+            "hot-air balloon", "spaceship", "tractor", "ambulance", "police", "taxi", "roller coaster"],
+        "vegetables": [
+            "carrot", "broccoli", "cauliflower", "lettuce", "spinach", "pumpkin", "sweet potato", "radish", "eggplant", "tomato",
+            "chili pepper", "cucumber", "corn", "peas"],
+        "fruits": [
+            "apple", "banana", "orange", "grape", "lemon", "peach", "pear", "strawberry", "blueberry", "watermelon",
+            "melon", "kiwi", "pineapple", "mango", "papaya", "cherry", "fig", "grapefruit", "pomegranate", "date", "guava"],
+        "desserts": [
+            "cake", "pie", "brownie", "cookie", "ice-cream", "pudding", "custard", "chocolate", "macaron", "muffin", "donut",
+            "cupcake", "croissant", "pancake", "waffle", "cheesecake", "tiramisu", "eclair", "crepe", "mousse", "biscotti", "fruitcake"],
+        "countries": [
+            "Canada", "China", "France", "Germany", "India", "Italy", "Japan", "Russia", "SaudiArabia", "SouthAfrica",
+            "Spain", "Turkey", "Ukraine", "England", "UnitedStates", "Australia", "Brazil", "Egypt", "Iran", "Iraq"],
+        "sports": [
+            "soccer", "basketball", "volleyball", "tennis", "badminton", "baseball", "cricket", "hockey", "football",
+            "golf",
+            "swimming", "running", "cycling", "boxing", "wrestling", "karate", "taekwondo", "judo", "fencing", "skiing",
+            "snowboarding", "surfing", "skateboarding", "climbing", "parkour", "yoga", "pilates", "gymnastics", "dancing"],
+        "shapes": [
+            "circle", "square", "rectangle", "triangle", "diamond", "heart", "star"],
+        "tools": [
+            "hammer", "tape", "knife","scissors", "file", "clamp", "pencil", "ruler", "compass", "laser", "sensor", "thermometer"],
+        "emotions": [
+            "happiness", "anger", "love", "fear", "sadness", "surprise", "disgust", "anxiety", "curiosity"],
+        "careers": [
+            "doctor", "engineer", "teacher", "artist", "lawyer", "chef", "pilot", "nurse", "scientist", "firefighter", "architect", "writer",
+            "entrepreneur", "actor", "athlete", "musician", "police officer", "journalist", "electrician", "psychologist", "biologist", "chemist",
+            "economist", "geologist", "mathematician", "physicist", "accountant", "dentist", "pharmacist", "librarian", "politician", "astronomer",
+            "judge", "banker", "graphic designer", "chef", "cartoonist"],
+        "objects": [
+            "television", "computer", "smartphone", "camera", "book", "guitar", "bicycle", "watch", "sunglasses", "headphones", "umbrella",
+            "backpack", "shoes", "hat", "kite", "balloon", "tent", "puzzle", "mirror", "chair", "table", "lamp", "painting", "vase", "clock", "phone", "toothbrush", "shovel", "wheelbarrow",
+            "teapot", "refrigerator", "washing machine", "oven", "microwave", "vacuum cleaner", "hairdryer", "laptop", "printer",
+            "keyboard", "mouse", "remote control", "alarm clock", "candles", "glasses", "spoon", "fork", "knife", "plate", "mug",
+            "blender", "pillow", "blanket", "candle"],
+        "famous_places": [
+            "Eiffel Tower", "Great Wall of China", "Taj Mahal", "Pyramids", "Colosseum", "Louvre Museum", "Mount Everest", "Amazon Rainforest"],
+        "nature": [
+            "rainforest", "desert", "mountain", "ocean", "waterfall", "lake", "river", "cave", "forest", "island", "volcano",
+            "beach", "sunset", "rainbow", "aurora borealis", "tornado", "tsunami", "earthquake", "hurricane", "tundra"],
+        "random": [
+                "Shakespeare", "Harry Potter", "Leonardo da Vinci", "Piano", "Violin", "Guitar", "Renaissance", "Impressionism", "Internet", "Electricity",
+                "Mario", "Minecraft", "HayDay", "Mona Lisa", "Egyptian", "Roman", "Mars", "Milky Way", "Black Hole", "Thomas Edison", "Einstein",
+                "Spanish", "French", "Mandarin", "Dollar", "Euro", "Yen"]
+            
+    },
+    "arabic":{
+        "hobbies": [
+            "قراءة", "سباحة", "ركض", "كتابة", "طهي", "تصوير", "رسم", "رسم", "صيد", "تسلق",
+            "غناء", "رقص", "تمثيل", "برمجة", "سفر", "خبز", "يوغا", "تزلج", "تسلق الجبال"
+        ],
+        "animals": [
+            "زرافة", "فيل", "نمر", "أسد", "فهد", "فهد", "بانثر", "جاكوار", "زربة", "فرس النهر", "وحيد القرن",
+            "كنغر", "كوالا", "تمساح", "تمساح", "ثعبان", "ضفدع", "سلحفاة", "بطرس", "بطرس", "بطرس", "بطرس",
+            "نسر", "بومة", "خفاش", "راكون", "سنجاب", "قرد", "غوريلا", "شمبانزي", "شمبانزي"
+        ],
+        "colors": [
+            "أحمر", "أزرق", "أخضر", "أصفر", "برتقالي", "أرجواني", "زهري", "رمادي", "بني", "أسود", "أبيض", "ذهبي", "فضي"
+        ],
+        "football_teams": [
+            "برشلونة", "ريال مدريد", "ليفربول", "مانشستر يونايتد", "مانشستر سيتي", "تشيلسي", "أرسنال", "توتنهام",
+            "بايرن ميونخ", "بوروسيا دورتموند", "باريس سان جيرمان", "يوفنتوس", "إي سي ميلان", "إنتر ميلان"
+        ],
+        "football_players": [
+            "ميسي", "رونالدو", "نيمار", "مبابي", "ليفاندوفسكي", "هازارد", "دي بروين", "فان دايك", "صلاح", "ماني"
+        ],
+        "weather": [
+            "مشمس", "غائم", "ممطر", "عاصف", "مثلج", "عاصف", "ضبابي", "غائم", "حار", "بارد", "رطب", "جاف"
+        ],
+        "vehicles": [
+            "سيارة", "دراجة نارية", "شاحنة", "حافلة", "قطار", "دراجة", "سكوتر", "مروحية", "طائرة", "سفينة", "غواصة",
+            "منطاد ساخن", "سفينة فضائية", "جرار", "سيارة إسعاف", "سيارة شرطة", "تاكسي", "Montagnes russes"
+        ],
+        "vegetables": [
+            "جزر", "بروكلي", "زهرة القرنبيط", "خس", "سبانخ", "قرع", "بطاطا حلوة", "فجل", "باذنجان", "طماطم",
+            "فلفل حار", "خيار", "ذرة", "بازلاء"
+        ],
+        "fruits": [
+            "تفاح", "موز", "برتقال", "عنب", "ليمون", "خوخ", "كمثرى", "فراولة", "توت أزرق", "بطيخ",
+            "بطيخ", "كيوي", "أناناس", "مانجو", "بابايا", "كرز", "تين", "جريب فروت", "رمان", "تمر", "جوافة"
+        ],
+        "desserts": [
+            "كعكة", "فطيرة", "براوني", "كوكي", "آيس كريم", "بودينغ", "كسترد", "شوكولاتة", "ماكارون", "مافن", "دونات",
+            "كب كيك", "كرواسان", "بانكيك", "وافل", "تشيز كيك", "تيراميسو", "إكلير", "كريب", "موس", "بسكوتي", "فاكهة"
+        ],
+        "countries": [
+            "كندا", "الصين", "فرنسا", "ألمانيا", "الهند", "إيطاليا", "اليابان", "روسيا", "المملكة العربية السعودية",
+            "جنوب إفريقيا", "إسبانيا", "تركيا", "أوكرانيا", "إنجلترا", "الولايات المتحدة", "أستراليا", "البرازيل", "مصر", "إيران", "العراق"
+        ],
+        "sports": [
+            "كرة القدم", "كرة السلة", "كرة الطائرة", "تنس", "كرة الريشة", "بيسبول", "كريكيت", "هوكي", "كرة القدم الأمريكية",
+            "جولف", "سباحة", "ركض", "دراجات", "ملاكمة", "مصارعة", "كاراتيه", "تايكوندو", "جودو", "السياج", "تزلج",
+            "التزلج على الثلج", "ركوب الأمواج", "التزلج على اللوح", "تسلق", "الباركور", "يوغا", "بيلاتس", "الجمباز", "الرقص"
+        ],
+        "shapes": [
+            "دائرة", "مربع", "مستطيل", "مثلث", "ماسة", "قلب", "نجمة"
+        ],
+        "tools": [
+            "مطرقة", "شريط", "سكين", "مقص", "ملف", "مشبك", "قلم", "مسطرة", "بوصلة", "ليزر", "مستشعر", "ميزان حرارة"
+        ],
+        "emotions": [
+            "سعادة", "غضب", "حب", "خوف", "حزن", "دهشة", "اشمئزاز", "قلق", "فضول"
+        ],
+        "random": [
+            "حرب النجوم", "صراع العروش", "شكسبير", "هاري بوتر", "ليوناردو دافنشي", "ألبرت أينشتاين",
+            "بيانو", "كمان", "جيتار", "عصر النهضة", "الانطباعية", "الهاتف", "الإنترنت", "الكهرباء",
+            "ماريو", "ماينكرافت", "فورتنايت", "برج إيفل", "سور الصين العظيم", "لوحة الموناليزا", "ليلة النجوم",
+            "الحضارة المصرية", "الحضارة الرومانية", "الحضارة المايا", "أساطير الإغريق", "أساطير النورس", "كوكب المريخ", "مجرة درب التبانة", "الثقب الأسود"],
+        "famous_places": [
+            "برج إيفل", "سور الصين العظيم", "أهرامات الجيزة", "الكولوسيوم", "بيغ بن", "الأكروبوليس", "تاج محل", "ماتشو بيتشو",
+            "قصر فيرساي", "سد هوفر", "جسر سان فرانسيسكو", "بورج خليفة", "قلعة نويشفانشتاين", "جبل رشمور", "جبل كيليمنجارو", "كاتدرائية نوتردام",
+            "جبل راشمور", "بحر ميت", "كاتدرائية كولونيا", "جسر لندن", "أبراج بتروناس", "معبد فيل", "كنيسة سانت بيتر", "قصر بوكنجهام"],
+        "nature": [
+            "جبل", "نهر", "غابة", "شلال", "صحراء", "بحيرة", "بحر", "جزيرة", "جليد", "بركان",
+            "زلزال", "عاصفة", "صقيع", "سماء", "سحاب", "قمر", "شمس", "نجم", "كوكب", "كويكب", "فضاء"],
+        "courses": [
+            "علوم الكمبيوتر", "علوم البيانات", "الذكاء الاصطناعي", "التعلم الآلي", "تصميم الجرافيك", "التسويق الرقمي", "تطوير الويب",
+            "تصميم واجهة المستخدم", "هندسة البرمجيات", "الأمن السيبراني", "علوم البيانات", "الطبخ", "الخياطة", "الرسم والتصوير", "الموسيقى", "السياحة"],
+        "objects": [
+            "طائرة", "سفينة حربية", "سيارة أجرة", "سيارة شرطة", "سفينة شحن", "دبابة", "هليكوبتر", "دراجة نارية", "قطار",
+            "عجلة", "طائرة حربية", "قاطرة", "زلاجة", "قارب", "قارب شراعي", "دراجة هوائية", "سيارة رياضية", "كرة",
+            "قفازات", "مظلة", "نظارات شمسية", "ساعة", "قلم حبر", "كمبيوتر", "ماوس", "لوحة مفاتيح", "هاتف ذكي",
+            "سماعات", "تلفزيون", "كاميرا", "مكبر صوت", "ساعة حائط", "جهاز تحكم عن بعد", "قرص", "قمر صناعي", "صاروخ", "شاحنة نقل",
+            "عربة", "كنبة", "طاولة", "كرسي", "ثلاجة", "ميكروويف", "فرن", "سخان", "مروحة", "مكيف هواء", "خزانة", "سرير", "مكتب", "تلفاز", "كريم للوجه"]
+    }
 }

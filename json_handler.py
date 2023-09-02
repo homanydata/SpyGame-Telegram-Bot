@@ -7,7 +7,8 @@ def read_dict():
         data = json.load(json_file)
     return data
 
-def choose_word(data: dict):
-    theme = random.choice(list(data.keys()))
-    word = random.choice(data[theme])
+def choose_word(data: dict, session):
+    thisData = data[session.language]
+    theme = random.choice(list(thisData.keys()))
+    word = random.choice(thisData[theme])
     return word
