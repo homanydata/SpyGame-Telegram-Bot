@@ -1,7 +1,7 @@
 import telebot
 
 class Keys:
-    TOKEN = '6441490404:AAF3m-jPebn9E4dzn9ZeoCF82CiveNzc0AU'
+    TOKEN = '6441490404:AAEcSqJo_Z3ucMJh-g7gZpJXoL7XzOwi82g'
     File_Directory = 'C:\Ali\TelegramBots\SpyGame\data.json'
     min_players = 3
 

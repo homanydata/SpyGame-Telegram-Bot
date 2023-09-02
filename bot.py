@@ -83,12 +83,15 @@ class SpyGameBot:
         self.start_timer(time=Timer.guessing_spy, function=self.show_results, kwargs={"session":session})
 
     def run(self):
-        # this is the actual main body of the bot, other functions are helpers
-        @self.bot.message_handler(commands=['play'], chat_types=['group'])
+        @self.bot.message_handler(chat_types=['private'])
+        def repeat(message):
+            self.bot.send_message(chat_id=message.chat.id, text="hello")
+
+        @self.bot.message_handler(commands=['play'])
         def handle_play_command(message):
             self.start(chat_id=message.chat.id)
         
-        @self.bot.message_handler(commands=['change_language'], chat_types=['group'])
+        @self.bot.message_handler(commands=['change_language'])
         def ask_language(message):
             try:
                 session = self.sessions[message.chat.id]
@@ -106,10 +109,6 @@ class SpyGameBot:
             if selected_language in Messages.get_languages('english'):
                 session.change_language(selected_language)
                 self.bot.send_message(chat_id=session.chat_id, text=Messages.language_changed(session.language))
-        
-        @self.bot.message_handler(func=lambda message:True, chat_types=['private'])
-        def repeat(message):
-            self.bot.send_message(chat_id=message.chat.id, text="hello")
 
         @self.bot.poll_answer_handler()
         def handle_answer(poll_answer):
