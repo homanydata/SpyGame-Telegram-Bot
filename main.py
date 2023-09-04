@@ -1,2 +1,4 @@
 from bot import SpyGameBot
-SpyGameBot().run()
+# create a bot instance and run it
+bot = SpyGameBot()
+bot.run()

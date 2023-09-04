@@ -15,8 +15,10 @@ def choose_word(data: dict, session):
 
 def choose_word_randomly(data:dict, session):
     data = data[session.language]
-    allWords = []
-    for theme in data:
-        allWords.append(theme)
-    word = random.choice(allWords)
+    all_words = []
+    # merge all words from all themes into one big list, all_words list
+    for theme, words in data.items():
+        all_words.extend(words)
+    
+    word = random.choice(all_words)
     return word

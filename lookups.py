@@ -1,9 +1,10 @@
 import telebot
 
 class Keys:
-    TOKEN = '6441490404:AAEcSqJo_Z3ucMJh-g7gZpJXoL7XzOwi82g'
-    File_Directory = 'C:\Ali\TelegramBots\SpyGame\data.json'
+    TOKEN = "6441490404:AAEcSqJo_Z3ucMJh-g7gZpJXoL7XzOwi82g"
+    File_Directory = "C:\Ali\TelegramBots\SpyGame\data.json"
     min_players = 3
+    Default_Language = "english"
 
 class Timer:
     waiting_players = 30
@@ -11,9 +12,10 @@ class Timer:
     guessing_spy = 20
 
 class Messages():
-
+    # these are all messages the bot may need to send
     messages = {
         "english":{
+            "help": "I am Spy Game Bot, you can add me to any group with your friends and I'll help you play spy game",
             "start_game_prompt" : "Who wants to play the spy game? Click below to join!",
             "wonna_play" : "I am in",
             "no_enough_players" : f"oops, sorry to tell you that there is no enough players({Keys.min_players}+) to play now, try at another time",
@@ -29,6 +31,7 @@ class Messages():
             "language_changed": "Language changed successfully"
             },
         "arabic":{
+            "help": 'فوتني عغروب انت ورفقاتك وبس بدكن بصير فيي ساعدكن تلعبو لعبة "مين برا السالفة"',
             "start_game_prompt" : "مين بدو يلعب؟",
             "wonna_play" : "انا",
             "no_enough_players" : f"انتو الكل بالكل بس عددكن مش كافي للعبة لازم تكونو {Keys.min_players} عالاقل",
@@ -45,6 +48,8 @@ class Messages():
         }
     }
 
+    # a method for each message
+    def help(language): return Messages.messages[language]['help']
     def start_game_prompt(language): return Messages.messages[language]['start_game_prompt']
     def wonna_play(language): return Messages.messages[language]['wonna_play']
     def no_enough_players(language): return Messages.messages[language]['no_enough_players']
@@ -60,7 +65,7 @@ class Messages():
         return Messages.messages[language]["send_word"] + word
     
     def show_results(spy:telebot.types.User, word:str, language):
-        return f'{Messages.messages[language]["announce_spy"]} @{spy.username} {Messages.and_word(language)} {Messages.send_word(word, language)}'
+        return f'{Messages.messages[language]["announce_spy"]} {spy.full_name} {Messages.and_word(language)} {Messages.send_word(word, language)}'
 
 class Errors:
     errors = {
@@ -71,13 +76,15 @@ class Errors:
             'newUserError': '، ما بقدر احكي حدا اذا ولا مرة باعتلي شي، بعتلي حيلا شي عالخاص'
         }
     }
-    def newUserError(language:str, user:telebot.types.User): return f"@{user.username} {Errors.errors[language]['newUserError']}"
+    # error when a bot needs to chat a new user, since telegram prohibits that
+    def newUserError(language:str, user:telebot.types.User): return f"{user.full_name} {Errors.errors[language]['newUserError']}"
 
 class Markups:
+    # markup with button for each language, in background, call data is the corresponding language in Default language
     def get_choose_language_markup(language):
-        markup = telebot.types.InlineKeyboardMarkup(row_width=len(Messages.get_languages('english'))//2)
+        markup = telebot.types.InlineKeyboardMarkup(row_width=len(Messages.get_languages(Keys.Default_Language))//2)
         buttons = [
-            telebot.types.InlineKeyboardButton(language, callback_data=standard) for language, standard in zip(Messages.get_languages(language), Messages.get_languages('english'))
+            telebot.types.InlineKeyboardButton(language.upper(), callback_data=standard) for language, standard in zip(Messages.get_languages(language), Messages.get_languages(Keys.Default_Language))
         ]
         markup.add(*buttons)
         return markup
