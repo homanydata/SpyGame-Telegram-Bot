@@ -157,7 +157,7 @@ class SpyGameBot:
 
         # the bot is not made for private chats, so for any message in a private chat other than /help, it will just respond with "hello"
         @self.bot.message_handler(chat_types=['private'])
-        def repeat(message):
+        def hello(message):
             self.bot.send_message(chat_id=message.chat.id, text="hello")
 
         @self.bot.message_handler(commands=['play'])
@@ -169,6 +169,19 @@ class SpyGameBot:
         def handle_answer(poll_answer):
             # a poll answer is either for participation or guessing the spy polls
             self.handle_poll_answer(poll_answer)
+        
+        @self.bot.message_handler(content_types=['new_chat_members'])
+        def new_chat_member(message):
+            chat_id = message.chat.id
+            new_members = message.new_chat_members
 
+            for member in new_members:
+                if member.id == self.bot.get_me().id:
+                    # The bot itself was added to the group
+                    introduce_bot(message)
+                else:
+                    # Other members were added to the group
+                    language = self.get_chat_language(chat_id=chat_id)
+                    self.bot.send_message(chat_id, Messages.welcome(member, language=language))
         self.bot.polling()
 

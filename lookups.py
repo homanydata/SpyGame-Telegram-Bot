@@ -1,21 +1,21 @@
 import telebot
 
 class Keys:
-    TOKEN = "6441490404:AAEcSqJo_Z3ucMJh-g7gZpJXoL7XzOwi82g"
     File_Directory = "C:\Ali\TelegramBots\SpyGame\data.json"
     min_players = 3
     Default_Language = "english"
 
 class Timer:
-    waiting_players = 30
-    questions_time = 180
-    guessing_spy = 20
+    waiting_players = 60
+    questions_time = 210
+    guessing_spy = 40
 
 class Messages():
     # these are all messages the bot may need to send
     messages = {
         "english":{
-            "help": "I am Spy Game Bot, you can add me to any group with your friends and I'll help you play spy game",
+            "help": "I am Spy Game Bot, you can add me to any group with your friends and I'll help you play spy game\nto start a turn, use /play\nto change language use /change_language\n",
+            "welcome": "Welcome ",
             "start_game_prompt" : "Who wants to play the spy game? Click below to join!",
             "wonna_play" : "I am in",
             "no_enough_players" : f"oops, sorry to tell you that there is no enough players({Keys.min_players}+) to play now, try at another time",
@@ -31,7 +31,10 @@ class Messages():
             "language_changed": "Language changed successfully"
             },
         "arabic":{
-            "help": 'فوتني عغروب انت ورفقاتك وبس بدكن بصير فيي ساعدكن تلعبو لعبة "مين برا السالفة"',
+            "help": 'فوتني عغروب انت ورفقاتك وبس بدكن بصير فيي ساعدكن تلعبو لعبة "مين برا السالفة"'
+                    + "\nلتبلشوا دور، استعملو /play"
+                    + "\nلتغيروا اللغة، استعملوا  /change_language",
+            "welcome": "اهلين ب ",
             "start_game_prompt" : "مين بدو يلعب؟",
             "wonna_play" : "انا",
             "no_enough_players" : f"انتو الكل بالكل بس عددكن مش كافي للعبة لازم تكونو {Keys.min_players} عالاقل",
@@ -63,7 +66,8 @@ class Messages():
 
     def send_word(word:str, language:str):
         return Messages.messages[language]["send_word"] + word
-    
+    def welcome(user, language):
+        return Messages.messages[language]['welcome'] + user.full_name
     def show_results(spy:telebot.types.User, word:str, language):
         return f'{Messages.messages[language]["announce_spy"]} {spy.full_name} {Messages.and_word(language)} {Messages.send_word(word, language)}'
 
